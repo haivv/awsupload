@@ -17,7 +17,7 @@ const upload = multer({ storage: storage });
 
 
 // Endpoint to upload image
-router.post('/upload-news', upload.single('fileToUpload'), (req, res) => {
+router.post('/uploadnews', upload.single('fileToUpload'), (req, res) => {
 	const file = req.file;
 	if (!file) {
 		console.error('No file uploaded');
@@ -25,8 +25,7 @@ router.post('/upload-news', upload.single('fileToUpload'), (req, res) => {
 	}
 	console.log(`File uploaded: ${file.filename}`);
 	res.status(200).json({
-		uploaded: true,
-		url: `/uploads/news/${file.filename}`
+		uploaded: true
 	});
 });
 
